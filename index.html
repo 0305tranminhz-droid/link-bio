@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trần Bảo Minh - Bio Links</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url('bg.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .bio-container {
+            width: 100%;
+            max-width: 420px;
+            background: rgba(15, 15, 25, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 24px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .profile-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+            color: #ffffff;
+        }
+
+        .section-title {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(255, 255, 255, 0.6);
+            margin: 20px 0 10px 0;
+            text-align: left;
+            padding-left: 5px;
+        }
+
+        .btn-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            width: 100%;
+            padding: 14px 20px;
+            margin-bottom: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 14px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-link:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-donate {
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            border: none;
+            font-weight: 600;
+        }
+
+        .btn-donate:hover {
+            background: linear-gradient(135deg, #feb47b, #ff7e5f);
+        }
+
+        /* Modal Popup cho QR */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 20px;
+            max-width: 320px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            color: #333;
+        }
+
+        .modal-content img {
+            width: 100%;
+            border-radius: 12px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #666;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bio-container">
+        <h2 class="profile-title">TRẦN BẢO MINH</h2>
+
+        <!-- QR Donate -->
+        <button class="btn-link btn-donate" onclick="openModal()">
+            <i class="fa-solid fa-qrcode"></i> QR Donate
+        </button>
+
+        <!-- Thông tin liên hệ -->
+        <div class="section-title">Thông tin liên hệ</div>
+        
+        <a href="mailto:0305tranminhz@gmail.com" class="btn-link">
+            <i class="fa-solid fa-envelope"></i> Gmail: 0305tranminhz@gmail.com
+        </a>
+        
+        <a href="https://zalo.me/0849000170" target="_blank" class="btn-link">
+            <i class="fa-solid fa-comment-dots"></i> Zalo: 0849000170
+        </a>
+        
+        <a href="https://www.facebook.com/TBM0305" target="_blank" class="btn-link">
+            <i class="fa-brands fa-facebook"></i> Facebook
+        </a>
+
+        <!-- Discord -->
+        <div class="section-title">Cộng đồng</div>
+        <a href="https://discord.gg/GpFvm7xN7" target="_blank" class="btn-link">
+            <i class="fa-brands fa-discord"></i> Discord Server
+        </a>
+    </div>
+
+    <!-- Modal QR Code -->
+    <div class="modal" id="qrModal" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h3 style="margin-bottom: 12px; color: #111;">Ngân hàng / Donate</h3>
+            <img src="qr-donate.jpg" alt="QR Bank Trần Bảo Minh">
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('qrModal').style.display = 'flex';
+        }
+        function closeModal() {
+            document.getElementById('qrModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
